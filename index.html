@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Железнодорожная система управления</title>
+    <style>
+        * {box-sizing: border-box; margin: 0; padding: 0;}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        nav {
+            background: white;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        nav button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        nav button:hover {background: linear-gradient(135deg, #2980b9, #2573a7);}
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f9f9fb;
+            border-radius: 12px;
+            margin: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        #welcome {
+            text-align: center;
+            color: #2c3e50;
+        }
+        #welcome h2 {margin-bottom: 10px;}
+        #welcome p {font-size: 1.1rem; color: #555;}
+        footer {
+            background: #f8f9fa;
+            color: #6c757d;
+            text-align: center;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>🚆 Система управления железнодорожными операциями</header>
+    <nav>
+        <button onclick="showPage('home')">🏠 Главная</button>
+        <button onclick="showPage('park_management.html')">🚆 Управление парком</button>
+        <button onclick="showPage('schedule_control.html')">📊 План-график</button>
+    </nav>
+    <main>
+        <div id="welcome">
+            <h2>Добро пожаловать!</h2>
+            <p>Выберите раздел выше, чтобы начать работу.</p>
+        </div>
+        <iframe id="iframe"></iframe>
+    </main>
+    <footer>Железнодорожная система управления © 2025</footer>
+
+    <script>
+        function showPage(page) {
+            const iframe = document.getElementById('iframe');
+            const welcome = document.getElementById('welcome');
+            if (page === 'home') {
+                iframe.style.display = 'none';
+                welcome.style.display = 'block';
+            } else {
+                iframe.src = page;
+                iframe.style.display = 'block';
+                welcome.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
